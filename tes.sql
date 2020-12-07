@@ -5140,8 +5140,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 DELETE FROM `users`;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `company_id`, `id_rms_roles_divisions`, `name`, `email`, `position`, `user_img`, `access`, `username`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-	(1, 1, 1, 'Administrator', 'admin@cypher.com', NULL, NULL, NULL, 'cypher', NULL, '$2y$10$hqzIGbf1OGSizdxXvJlWPO3DBSR2JWEgnhi8D.WRLEjpJ9agdvHl6', NULL, '2020-09-17 20:32:40', '2020-10-15 02:32:44'),
-	/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+	(1, 1, 1, 'Administrator', 'admin@cypher.com', NULL, NULL, NULL, 'cypher', NULL, '$2y$10$hqzIGbf1OGSizdxXvJlWPO3DBSR2JWEgnhi8D.WRLEjpJ9agdvHl6', NULL, '2020-09-17 20:32:40', '2020-10-15 02:32:44');
 
 -- Dumping structure for table cypher4.util_decree_main
 CREATE TABLE IF NOT EXISTS `util_decree_main` (
