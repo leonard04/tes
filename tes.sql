@@ -4561,7 +4561,7 @@ INSERT INTO `preference_config` (`id`, `penalty_amt`, `penalty_period`, `penalty
 CREATE TABLE IF NOT EXISTS `pref_tax_config` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `tax_name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
-  `formula` text COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
+  `formula` text COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT NULL,
   `conflict_with` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_by` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
   `created_at` datetime NOT NULL,
