@@ -4561,7 +4561,7 @@ INSERT INTO `preference_config` (`id`, `penalty_amt`, `penalty_period`, `penalty
 CREATE TABLE IF NOT EXISTS `pref_tax_config` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `tax_name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
-  `formula` text COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT NULL,
+  `formula` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `conflict_with` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_by` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
   `created_at` datetime NOT NULL,
@@ -5142,12 +5142,7 @@ DELETE FROM `users`;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 INSERT INTO `users` (`id`, `company_id`, `id_rms_roles_divisions`, `name`, `email`, `position`, `user_img`, `access`, `username`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 	(1, 1, 1, 'Administrator', 'admin@cypher.com', NULL, NULL, NULL, 'cypher', NULL, '$2y$10$hqzIGbf1OGSizdxXvJlWPO3DBSR2JWEgnhi8D.WRLEjpJ9agdvHl6', NULL, '2020-09-17 20:32:40', '2020-10-15 02:32:44'),
-	(7, 1, 1, 'Rakai Wastu Demos', 'rakai@mail.com', NULL, NULL, NULL, 'rakai', NULL, '$2y$10$eU603KwcnD8fU0dxDpZlr.0ikNvQwoARkBQif4LlJ1xMatXncjObm', NULL, '2020-11-27 08:20:36', '2020-11-27 08:21:13'),
-	(8, 1, 1, 'Denissa Nuragusti', 'denissa@mail.com', NULL, NULL, NULL, 'denissa', NULL, '$2y$10$0wS2sbOWX4R8MARkvl9NVen5O55bBJUOUWZeFVmbjlKcgpkP4t4by', NULL, '2020-11-27 08:21:07', '2020-11-27 08:21:07'),
-	(9, 1, 1, 'Muhammad Fauzi Fikrillah Harahap', 'fauzi@mail.com', NULL, NULL, NULL, 'fauzi', NULL, '$2y$10$FEPWj/eA51cmb4UHVSgErelicOg.ZAJUrSUSNafVPXekrAeC5Aecq', NULL, '2020-11-27 08:21:35', '2020-11-27 08:21:35'),
-	(10, 1, 1, 'Fiana Shabira', 'fia@mail.com', NULL, NULL, NULL, 'fia', NULL, '$2y$10$bRxgOo6EE105JVohd8IyzOUw7jE9rldTiO/CKmjxLpzZK0DW09Kua', NULL, '2020-11-27 08:21:57', '2020-11-27 08:21:57'),
-	(11, 1, 1, 'Fanggie Deeva Clarista', 'fanggie@mail.com', NULL, NULL, NULL, 'fanggie', NULL, '$2y$10$Y1K.xN7sMGTbNx03Onp2KeOb5Rcq/hQuk1WXPAjnpZKf2gZtHrkNm', NULL, '2020-11-27 08:23:04', '2020-11-27 08:23:04');
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+	/*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 -- Dumping structure for table cypher4.util_decree_main
 CREATE TABLE IF NOT EXISTS `util_decree_main` (
