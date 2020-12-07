@@ -681,9 +681,9 @@ INSERT INTO `activity_log` (`id`, `log_name`, `description`, `subject_type`, `su
 -- Dumping structure for table cypher4.application_master
 CREATE TABLE IF NOT EXISTS `application_master` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `login_logo` text DEFAULT '0',
-  `dashboard_logo` text DEFAULT '0',
-  `footer_tag` text DEFAULT '0',
+  `login_logo` text DEFAULT NULL,
+  `dashboard_logo` text DEFAULT NULL,
+  `footer_tag` text DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
