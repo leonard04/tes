@@ -1547,14 +1547,13 @@ DELETE FROM `failed_jobs`;
 -- Dumping structure for table cypher4.file_managements
 CREATE TABLE IF NOT EXISTS `file_managements` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `hash_code` text COLLATE utf8mb4_unicode_ci DEFAULT '0',
-  `file_name` text COLLATE utf8mb4_unicode_ci DEFAULT '0',
+  `hash_code` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `file_name` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `created_by` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `hash_code` (`hash_code`) USING HASH
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=125 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Dumping data for table cypher4.file_managements: ~124 rows (approximately)
