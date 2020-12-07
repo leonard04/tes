@@ -1547,8 +1547,8 @@ DELETE FROM `failed_jobs`;
 -- Dumping structure for table cypher4.file_managements
 CREATE TABLE IF NOT EXISTS `file_managements` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `hash_code` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `file_name` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `hash_code` text COLLATE utf8mb4_unicode_ci DEFAULT '0',
+  `file_name` text COLLATE utf8mb4_unicode_ci DEFAULT '0',
   `created_at` datetime DEFAULT NULL,
   `created_by` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
