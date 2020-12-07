@@ -4239,11 +4239,11 @@ DELETE FROM `marketing_subcost_detail`;
 -- Dumping structure for table cypher4.mcu_log
 CREATE TABLE IF NOT EXISTS `mcu_log` (
   `id` int(50) NOT NULL AUTO_INCREMENT,
-  `mcu_id` int(50) NOT NULL,
-  `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `uploader` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `address` text COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
-  `upload_time` date NOT NULL,
+  `mcu_id` int(50) DEFAULT NULL,
+  `name` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `uploader` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `address` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `upload_time` date DEFAULT NULL,
   `mcu_date` date DEFAULT NULL,
   `mcu_remark` varchar(250) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `mcu_expired` date DEFAULT NULL,
@@ -4283,7 +4283,7 @@ INSERT INTO `mcu_main` (`id`, `emp_id`, `created_at`, `updated_at`, `deleted_at`
 CREATE TABLE IF NOT EXISTS `migrations` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `batch` int(11) NOT NULL,
+  `batch` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -4356,8 +4356,8 @@ INSERT INTO `mtg_main` (`id_main`, `id_rv_topic`, `topic`, `location`, `date_mai
 -- Dumping structure for table cypher4.mtg_mom
 CREATE TABLE IF NOT EXISTS `mtg_mom` (
   `id_mom` int(50) NOT NULL AUTO_INCREMENT,
-  `id_main` int(50) NOT NULL,
-  `content` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id_main` int(50) DEFAULT NULL,
+  `content` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `pic` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `deadline` date DEFAULT NULL,
   `input_time` datetime DEFAULT NULL,
@@ -4383,8 +4383,8 @@ INSERT INTO `mtg_mom` (`id_mom`, `id_main`, `content`, `pic`, `deadline`, `input
 -- Dumping structure for table cypher4.new_category
 CREATE TABLE IF NOT EXISTS `new_category` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `id_parent` int(11) NOT NULL DEFAULT 0,
-  `name` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id_parent` int(11) DEFAULT NULL,
+  `name` varchar(250) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL,
