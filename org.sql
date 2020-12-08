@@ -1,6 +1,61 @@
 @extends('layouts.template')
 @section('content')
     <style type="text/css">
+        .rating {
+            float:left;
+        }
+
+        /* :not(:checked) is a filter, so that browsers that don’t support :checked don’t
+          follow these rules. Every browser that supports :checked also supports :not(), so
+          it doesn’t make the test unnecessarily selective */
+        .rating:not(:checked) > input {
+            position:absolute;
+            top:-9999px;
+            clip:rect(0,0,0,0);
+        }
+
+        .rating:not(:checked) > label {
+            float:right;
+            width:1em;
+            /* padding:0 .1em; */
+            overflow:hidden;
+            white-space:nowrap;
+            cursor:pointer;
+            font-size:300%;
+            /* line-height:1.2; */
+            color:#ddd;
+        }
+
+        .rating:not(:checked) > label:before {
+            content: '★ ';
+        }
+
+        .rating > input:checked ~ label {
+            color: dodgerblue;
+
+        }
+
+        .rating:not(:checked) > label:hover,
+        .rating:not(:checked) > label:hover ~ label {
+            color: dodgerblue;
+
+        }
+
+        .rating > input:checked + label:hover,
+        .rating > input:checked + label:hover ~ label,
+        .rating > input:checked ~ label:hover,
+        .rating > input:checked ~ label:hover ~ label,
+        .rating > label:hover ~ input:checked ~ label {
+            color: dodgerblue;
+
+        }
+
+        .rating > label:active {
+            position:relative;
+            top:2px;
+            left:2px;
+        }
+
         .star{
             unicode-bidi: bidi-override;
             color: #ffd700;
@@ -21,9 +76,11 @@
                 <div class="btn-group" role="group" aria-label="Basic example">
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addItem"><i class="fa fa-plus"></i>New Vendor</button>
                 </div>
+                <!--end::Button-->
             </div>
         </div>
         <div class="card-body">
+            {{--            <h5><span class="span">This page contains a list of Travel Order which has been formed.</span></h5>--}}
             <table class="table display">
                 <thead>
                 <tr>
@@ -35,6 +92,7 @@
                     <th class="text-center">Address</th>
                     <th class="text-left">Contact</th>
                     <th class="text-left">Rating</th>
+                    <th class="text-center">Holding</th>
                     <th class="text-center">&nbsp;</th>
                 </tr>
                 </thead>
@@ -48,7 +106,7 @@
                         <td>{{$val->pic}}</td>
                         <td>{{$val->address}}</td>
                         <td>{{$val->telephone}}</td>
-                        <td class="text-left">
+                        <td>
                             @php
 
                                 $stars = "";
@@ -57,9 +115,13 @@
                                     $stars .= "★";
                                 }
                             @endphp
-                            <div class="star">{{$stars}}</div>
-
+                            @if($stars > 0 || $stars != null ||$stars != '' )
+                                <div class='star'>{{$stars}}</div>
+                            @else
+                                N/A
+                            @endif
                         </td>
+                        <td align="center">{{$view_company[$val->company_id]->tag}}</td>
                         <td class="text-center">
                             <a class="btn btn-danger btn-xs dttb" href="{{route('vendor.delete',['id'=> $val->id])}}" title="Delete" onclick="return confirm('Are you sure you want to delete?'); ">
                                 <i class="fa fa-trash"></i>
