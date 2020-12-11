@@ -1,5 +1,5 @@
 --util criteria
-INSERT INTO `finance_util_criteria` (`id`, `name`, `content`, `author`) VALUES
+INSERT INTO `finance_util_criteria` (`id`, `company_id`, `name`, `content`, `author`) VALUES
 (NULL,21, 'Utilisasi', 'Keperluan bulanan', 'ino'),
 (NULL,21, 'Perijinan', '', 'ino'),
 (NULL,21, 'Pajak', '', 'ino'),
