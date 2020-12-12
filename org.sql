@@ -1,10 +1,33 @@
---treasure
-INSERT INTO `marketing_projects` (`id`, `company_id`, `prj_code`, `value`, `agreement_number`, `agreement_title`, `prj_name`, `prefix`, `category`, `currency`, `address`, `transport`, `taxi`, `rent`, `airtax`, `status`, `n_sim`, `start_time`, `end_time`, `ops_remark`, `ops_progress`, `ops_pic`, `mar_remark`, `mar_progress`, `mar_pic`, `ops_link`, `mar_link`, `to_category`, `view`, `view_subcost`, `wo_attach`, `list`, `del_list`, `id_client`) VALUES
-(NULL,1, '11', NULL, NULL, NULL, 'JARGAR SMG BLORA - Jawa Tengah dan Kalimantan Timur - Konstruksi', NULL, 'sales', NULL, NULL, 0.00, 0.00, 0.00, 0.00, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(NULL,1, '2', 999999, '99', '', 'General Affair', 'Internal', 'cost', 'IDR', '<p>Jl. Warung Jati</p>', 0.00, 0.00, 0.00, 0.00, NULL, NULL, '2019-02-12', '2021-02-12', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '[{"id":"10","cat":"project design"}]', NULL, NULL),
-(NULL,1, '3', 1, '1', '<p>Training Vessel Multi Engineer</p>', 'Management Training', 'TME', 'cost', 'IDR', '<p>VESSEL TOWER</p>', 0.00, 0.00, 0.00, 0.00, NULL, NULL, '2019-05-22', '2019-09-13', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL),
-(NULL,1, '4', 1, '1', '<p>-</p>', 'INVESTASI', 'INV', 'cost', 'IDR', '<p>-</p>', 0.00, 0.00, 0.00, 0.00, NULL, NULL, '2019-07-03', '2021-07-03', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL),
-(NULL,1, '5', 1000000000, '1', '', 'PSI - Rental EPF Tapen', 'TPN', 'sales', 'IDR', '', 0.00, 0.00, 0.00, 0.00, NULL, NULL, '2019-02-01', '2019-11-01', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '[{"id":"11","cat":"project design"}]', NULL, NULL),
-(NULL,1, '7', 1000000, '1', '', 'GAS - EPF - SALAWATI', 'SALAWATI', 'sales', 'IDR', '<p>PERTAMINA EP ASSET 4 SALAWATI</p>', 0.00, 0.00, 0.00, 0.00, NULL, NULL, '2019-09-18', '2020-12-31', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL),
-(NULL,1, '13', 1500000000, '-', '', '(ON GOING) PSI-WELL TEST-ENERTECH', 'PWE', 'sales', 'IDR', '<p>Well test di Blora</p>', 0.00, 0.00, 0.00, 0.00, NULL, NULL, '2020-09-23', '2020-11-23', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, 35);
+--util_master
+--bep
+INSERT INTO `finance_util_master` (`id`, `company_id`, `subject`, `description`, `recurrent_date`, `recurrent_type`, `type`, `amount`, `currency`, `status`, `last_date`, `n_date`, `classification`) VALUES
+(NULL, 21, 'UTILISASI KEBERSIHAN', 'Kebersihan warehouse dan office', '2020-01-28', 'monthly', 'variable', 176700.00, 'IDR', 'running', '2020-01-31', 1, 1),
+(NULL, 21, 'UTILISASI PANTRY', 'Pantry office dan kantin', '2020-01-28', 'monthly', 'variable', 440100.00, 'IDR', 'running', '2020-01-31', 1, 1),
+(NULL, 21, 'UTILISASI TRUCK DYNA', 'Fuel Truck Dyna dan toll', '2020-01-28', 'monthly', 'variable', 1026000.00, 'IDR', 'running', '2020-01-31', 1, 1),
+(NULL, 21, 'UTILISASI PAKAN IKAN', 'Pakan Ikan Koi WH', '2020-01-28', 'monthly', 'fixed', 130000.00, 'IDR', 'running', '2020-01-31', 1, 1),
+(NULL, 21, 'UTILISASI MOTOR MIO J', 'Fuel Motor Mio J', '2020-01-28', 'monthly', 'variable', 248590.00, 'IDR', 'running', '2020-01-31', 1, 1),
+(NULL, 21, 'UTILISASI JUMSIH', 'Jumsih Mingguan', '2020-01-28', 'monthly', 'variable', 50000.00, 'IDR', 'running', '2020-01-31', 1, 1),
+(NULL, 21, 'UTILISASI ASTINET', 'Astinet Telkom Vessel Warehouse', '2020-01-15', 'monthly', 'fixed', 796000.00, 'IDR', 'running', '2020-01-15', 1, 1),
+(NULL, 21, 'UTILISASI JASA KEAMANAN', 'Jasa Keamanan a.n : Pak Susanto', '2020-01-28', 'monthly', 'fixed', 5000000.00, 'IDR', 'running', '2020-01-30', 1, 1),
+(NULL, 21, 'UTILISASI INTERNET', 'Internet Vessel Warehouse 1223 7121 7288', '2020-11-01', 'monthly', 'fixed', 232035.00, 'IDR', 'running', '2020-11-01', 1, 1),
+(NULL, 21, 'UTILISASI MOBIL TRITON', 'Fuel dan tol', '2020-11-01', 'monthly', 'variable', 2000000.00, 'IDR', 'running', '2020-11-01', 1, 1);
+
+--corp
+INSERT INTO `finance_util_master` (`id`, `company_id`, `subject`, `description`, `recurrent_date`, `recurrent_type`, `type`, `amount`, `currency`, `status`, `last_date`, `n_date`, `classification`) VALUES
+(NULL, 1, 'Meteran Listrik PLN ART 2', 'Pulsa Listrik ART 2', '2018-10-22', 'monthly', 'fixed', 1500000.00, 'IDR', 'ready', '2018-10-22', 1, 1),
+(NULL, 1, 'Biaya Telp ', 'Biaya Telp Art Lantai 3', '2018-11-20', 'monthly', 'fixed', 560000.00, 'IDR', 'ready', '2018-11-20', 1, 1);
+
+--kso
+INSERT INTO `finance_util_master` (`id`, `company_id`, `subject`, `description`, `recurrent_date`, `recurrent_type`, `type`, `amount`, `currency`, `status`, `last_date`, `n_date`, `classification`) VALUES
+(NULL, 22, 'PLN', 'BULANAN, SEBELIM TANGGAL 20 SETIAP BULAN SUDAH HARUS DIBAYARKAN', '2020-04-15', 'monthly', 'variable', 1000000.00, 'IDR', 'ready', '2020-04-15', 1, 1);
+
+--mti
+INSERT INTO `finance_util_master` (`id`, `company_id`, `subject`, `description`, `recurrent_date`, `recurrent_type`, `type`, `amount`, `currency`, `status`, `last_date`, `n_date`, `classification`) VALUES
+(NULL, 23, 'UTILISASI LISTRIK', 'LISTRIK ID PELANGGAN 543600741002 A/N SOFJAN RUDIJANTO', '2020-01-10', 'monthly', 'fixed', 789880.00, 'IDR', 'running', '2020-01-10', 1, 1),
+(NULL, 23, 'UTILISASI LISTRIK', 'LISTRIK ID PELANGGAN 543600621964 A/N NORMA INDRIATI ST', '2020-01-10', 'monthly', 'fixed', 416604.00, 'IDR', 'running', '2020-01-10', 1, 1),
+(NULL, 23, 'UTILISASI INTERNET', 'INDIHOME 122210216462 A/N NOVA KURNIASIH', '2020-01-10', 'monthly', 'fixed', 445500.00, 'IDR', 'running', '2020-01-10', 1, 1),
+(NULL, 23, 'UTILISASI PANTRY ', 'UTILISASI PANTRY ', '2020-03-01', 'monthly', 'fixed', 1304645.00, 'IDR', 'running', '2020-03-01', 1, 1),
+(NULL, 23, 'UTILISASI TELEPON', 'UTILISASI TELEPON 02174861508 A/N NORMA INDRIATI ST', '2020-01-10', 'monthly', 'fixed', 51814.00, 'IDR', 'running', '2020-01-10', 1, 1),
+(NULL, 23, 'UTILISASI IURAN SAMPAH', 'UTILISASI IURAN SAMPAH ', '2020-03-01', 'monthly', 'fixed', 100000.00, 'IDR', 'running', '2020-03-01', 1, 1);
+
 --end
