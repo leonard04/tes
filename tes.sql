@@ -3,838 +3,166 @@
     <div class="card card-custom gutter-b">
         <div class="card-header">
             <div class="card-title">
-                Daily Report
+                <h3>{{($type == 'input')? 'Add': 'Edit'}} Daily Report</h3><br>
             </div>
-
-            <div class="card-toolbar">
-                <div class="btn-group" role="group" aria-label="Basic example">
-                    <a href="{{route('general.dr.view')}}" class="btn btn-primary" ><i class="fa fa-plus"></i>New Record</a>
-                </div>
-                <!--end::Button-->
-            </div>
-
         </div>
-
         <div class="card-body">
-            <ul class="nav nav-tabs" id="myTab" role="tablist">
-                <li class="nav-item">
-                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#all">
-                        <span class="nav-icon">
-                            <i class="flaticon-folder-1"></i>
-                        </span>
-                        <span class="nav-text">All</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#asset" aria-controls="profile">
-                        <span class="nav-icon">
-                            <i class="flaticon-folder-2"></i>
-                        </span>
-                        <span class="nav-text">Asset</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#finance" aria-controls="profile">
-                        <span class="nav-icon">
-                            <i class="flaticon-folder-3"></i>
-                        </span>
-                        <span class="nav-text">Finance</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#hrd" aria-controls="profile">
-                        <span class="nav-icon">
-                            <i class="flaticon-folder-3"></i>
-                        </span>
-                        <span class="nav-text">HRD</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#hse" aria-controls="profile">
-                        <span class="nav-icon">
-                            <i class="flaticon-folder-3"></i>
-                        </span>
-                        <span class="nav-text">HSE</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#it" aria-controls="profile">
-                        <span class="nav-icon">
-                            <i class="flaticon-folder-3"></i>
-                        </span>
-                        <span class="nav-text">IT</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#laboratory" aria-controls="profile">
-                        <span class="nav-icon">
-                            <i class="flaticon-folder-3"></i>
-                        </span>
-                        <span class="nav-text">Laboratory</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#marketing" aria-controls="profile">
-                        <span class="nav-icon">
-                            <i class="flaticon-folder-3"></i>
-                        </span>
-                        <span class="nav-text">Marketing</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#operation" aria-controls="profile">
-                        <span class="nav-icon">
-                            <i class="flaticon-folder-3"></i>
-                        </span>
-                        <span class="nav-text">Operation</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#procurement" aria-controls="profile">
-                        <span class="nav-icon">
-                            <i class="flaticon-folder-3"></i>
-                        </span>
-                        <span class="nav-text">Procurement</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#te" aria-controls="profile">
-                        <span class="nav-icon">
-                            <i class="flaticon-folder-3"></i>
-                        </span>
-                        <span class="nav-text">Technical Engineering</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#technology" aria-controls="profile">
-                        <span class="nav-icon">
-                            <i class="flaticon-folder-3"></i>
-                        </span>
-                        <span class="nav-text">Technology</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#911" aria-controls="profile">
-                        <span class="nav-icon">
-                            <i class="flaticon-folder-3"></i>
-                        </span>
-                        <span class="nav-text">911</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#mb" aria-controls="profile">
-                        <span class="nav-icon">
-                            <i class="flaticon-folder-3"></i>
-                        </span>
-                        <span class="nav-text">MB</span>
-                    </a>
-                </li>
-            </ul>
-            <div class="tab-content mt-5" id="myTabContent">
-                <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="home-tab">
-                    <div id="kt_datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
-                        <table class="table table-bordered table-hover display font-size-sm " style="margin-top: 13px !important; width: 100%;">
-                            <thead>
-                            <tr>
-                                <th class="text-center">#</th>
-                                <th nowrap="nowrap" class="text-center">Report By</th>
-                                <th nowrap="nowrap" class="text-center">Report Date</th>
-                                <th nowrap="nowrap" class="text-center">Division</th>
-                                <th nowrap="nowrap" class="text-center" style="width: 25%">Subject</th>
-                                <th nowrap="nowrap" class="text-center">Approval</th>
-                                <th nowrap="nowrap" class="text-center">#</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($all as $key => $value)
-                                <tr>
-                                    <td class="text-center">{{($key+1)}}</td>
-                                    <td class="text-center">{{$value->create_by}}</td>
-                                    <td class="text-center">{{date('d M Y', strtotime($value->rpt_time))}}</td>
-                                    <td class="text-center">{{strtoupper($value->rpt_wh)}}</td>
-                                    <td class="text-center"><a href="{{route('general.dr.view',['id' => $value->id])}}" class="btn btn-link">{{strtoupper($value->rpt_subject)}}</a></td>
-                                    <td class="text-center">
-                                        @if($value->approve_time == null)
-                                            <a href="#" class="btn btn-link"><i class="fa fa-clock"></i>&nbsp;waiting</a>
-                                        @else
-                                            @if($value->approve_time)
-                                                {{$value->approve_by}}
-                                                <br />
-                                                <em style='font-size:10px'>
-                                                    {{date('d M Y',strtotime($value->approve_time))}}
-                                                </em>
-                                            @else
-                                                waiting
-                                            @endif
-                                        @endif
-                                    </td>
-                                    <td class="text-center">
-                                        @if(\Illuminate\Support\Facades\Auth::user()->id_rms_roles_divisions == 1)
-                                            <a href="#" class="btn btn-danger btn-sm btn-icon" onclick="return confirm('Are you sure you want to delete?');"><i class="fa fa-trash"></i></a>
-                                        @else
-                                            -
-                                        @endif
-                                    </td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
+            <form method="post" action="{{route('general.dr.store')}}" enctype="multipart/form-data">
+                @csrf
+                <input type="hidden" name="type" id="type" value="{{$type}}">
+                <input type="hidden" name="id" id="id" value="{{($type=='edit')?$report->id:0}}">
+                <h4>Detail</h4>
+                <hr>
+                <div class="form-group row">
+                    <label class="col-md-2 col-form-label text-right">Report By</label>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" name="report_by" @if(isset($addmore) && $addmore == 1) value="{{$report_by}}" @else @if($type=='edit') value="{{$report->create_by}}" @else value="{{\Illuminate\Support\Facades\Auth::user()->username}}" @endif @endif readonly>
                     </div>
                 </div>
-                <div class="tab-pane fade" id="asset" role="tabpanel" aria-labelledby="profile-tab">
-                    <div id="kt_datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
-                        <table class="table table-bordered table-hover display font-size-sm " style="margin-top: 13px !important; width: 100%;">
-                            <thead>
-                            <tr>
-                                <th class="text-center">#</th>
-                                <th nowrap="nowrap" class="text-center">Report By</th>
-                                <th nowrap="nowrap" class="text-center">Report Date</th>
-                                <th nowrap="nowrap" class="text-center">Division</th>
-                                <th nowrap="nowrap" class="text-center" style="width: 25%">Subject</th>
-                                <th nowrap="nowrap" class="text-center">Approval</th>
-                                <th nowrap="nowrap" class="text-center">#</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($asset as $key => $value)
-                                <tr>
-                                    <td class="text-center">{{($key+1)}}</td>
-                                    <td class="text-center">{{$value->create_by}}</td>
-                                    <td class="text-center">{{date('d M Y', strtotime($value->rpt_time))}}</td>
-                                    <td class="text-center">{{strtoupper($value->rpt_wh)}}</td>
-                                    <td class="text-center"><a href="{{route('general.dr.view',['id' => $value->id])}}" class="btn btn-link">{{strtoupper($value->rpt_subject)}}</a></td>
-                                    <td class="text-center">
-                                        @if($value->approve_time == null)
-                                            <a href="#" class="btn btn-link"><i class="fa fa-clock"></i>&nbsp;waiting</a>
-                                        @else
-                                            @if($value->approve_time)
-                                                {{$value->approve_by}}
-                                                <br />
-                                                <em style='font-size:10px'>
-                                                    {{date('d M Y',strtotime($value->approve_time))}}
-                                                </em>
-                                            @else
-                                                waiting
-                                            @endif
-                                        @endif
-                                    </td>
-                                    <td class="text-center">
-                                        @if(\Illuminate\Support\Facades\Auth::user()->id_rms_roles_divisions == 1)
-                                            <a href="#" class="btn btn-danger btn-sm btn-icon" onclick="return confirm('Are you sure you want to delete?');"><i class="fa fa-trash"></i></a>
-                                        @else
-                                            -
-                                        @endif
-                                    </td>
-                                </tr>
+                <div class="form-group row">
+                    <label class="col-md-2 col-form-label text-right">Division</label>
+                    <div class="col-md-6">
+                        <select name="divisions" class="form-control">
+                            @foreach($divisions as $val)
+                                <option value="{{$val}}" @if(isset($addmore) && $addmore == 1) @if($division == $val) selected @endif @else @if($type=='edit') @if($report->rpt_wh == $val) SELECTED @endif @endif @endif>{{$val}}</option>
                             @endforeach
-                            </tbody>
-                        </table>
+                        </select>
                     </div>
                 </div>
-                <div class="tab-pane fade" id="finance" role="tabpanel" aria-labelledby="profile-tab">
-                    <div id="kt_datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
-                        <table class="table table-bordered table-hover display font-size-sm " style="margin-top: 13px !important; width: 100%;">
-                            <thead>
-                            <tr>
-                                <th class="text-center">#</th>
-                                <th nowrap="nowrap" class="text-center">Report By</th>
-                                <th nowrap="nowrap" class="text-center">Report Date</th>
-                                <th nowrap="nowrap" class="text-center">Division</th>
-                                <th nowrap="nowrap" class="text-center" style="width: 25%">Subject</th>
-                                <th nowrap="nowrap" class="text-center">Approval</th>
-                                <th nowrap="nowrap" class="text-center">#</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($finance as $key => $value)
-                                <tr>
-                                    <td class="text-center">{{($key+1)}}</td>
-                                    <td class="text-center">{{$value->create_by}}</td>
-                                    <td class="text-center">{{date('d M Y', strtotime($value->rpt_time))}}</td>
-                                    <td class="text-center">{{strtoupper($value->rpt_wh)}}</td>
-                                    <td class="text-center"><a href="{{route('general.dr.view',['id' => $value->id])}}" class="btn btn-link">{{strtoupper($value->rpt_subject)}}</a></td>
-                                    <td class="text-center">
-                                        @if($value->approve_time == null)
-                                            <a href="#" class="btn btn-link"><i class="fa fa-clock"></i>&nbsp;waiting</a>
-                                        @else
-                                            @if($value->approve_time)
-                                                {{$value->approve_by}}
-                                                <br />
-                                                <em style='font-size:10px'>
-                                                    {{date('d M Y',strtotime($value->approve_time))}}
-                                                </em>
-                                            @else
-                                                waiting
-                                            @endif
-                                        @endif
-                                    </td>
-                                    <td class="text-center">
-                                        @if(\Illuminate\Support\Facades\Auth::user()->id_rms_roles_divisions == 1)
-                                            <a href="#" class="btn btn-danger btn-sm btn-icon" onclick="return confirm('Are you sure you want to delete?');"><i class="fa fa-trash"></i></a>
-                                        @else
-                                            -
-                                        @endif
-                                    </td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
+                <div class="form-group row">
+                    <label class="col-md-2 col-form-label text-right">Report Date</label>
+                    <div class="col-md-6">
+                        <input type="date" class="form-control" name="report_date" @if(isset($addmore) && $addmore == 1) value="{{$report_date}}" @else @if($type=='edit') value="{{date('Y-m-d',strtotime($report->rpt_time))}}" @endif @endif required>
                     </div>
                 </div>
-                <div class="tab-pane fade" id="hrd" role="tabpanel" aria-labelledby="profile-tab">
-                    <div id="kt_datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
-                        <table class="table table-bordered table-hover display font-size-sm " style="margin-top: 13px !important; width: 100%;">
-                            <thead>
-                            <tr>
-                                <th class="text-center">#</th>
-                                <th nowrap="nowrap" class="text-center">Report By</th>
-                                <th nowrap="nowrap" class="text-center">Report Date</th>
-                                <th nowrap="nowrap" class="text-center">Division</th>
-                                <th nowrap="nowrap" class="text-center" style="width: 25%">Subject</th>
-                                <th nowrap="nowrap" class="text-center">Approval</th>
-                                <th nowrap="nowrap" class="text-center">#</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($hrd as $key => $value)
-                                <tr>
-                                    <td class="text-center">{{($key+1)}}</td>
-                                    <td class="text-center">{{$value->create_by}}</td>
-                                    <td class="text-center">{{date('d M Y', strtotime($value->rpt_time))}}</td>
-                                    <td class="text-center">{{strtoupper($value->rpt_wh)}}</td>
-                                    <td class="text-center"><a href="{{route('general.dr.view',['id' => $value->id])}}" class="btn btn-link">{{strtoupper($value->rpt_subject)}}</a></td>
-                                    <td class="text-center">
-                                        @if($value->approve_time == null)
-                                            <a href="#" class="btn btn-link"><i class="fa fa-clock"></i>&nbsp;waiting</a>
-                                        @else
-                                            @if($value->approve_time)
-                                                {{$value->approve_by}}
-                                                <br />
-                                                <em style='font-size:10px'>
-                                                    {{date('d M Y',strtotime($value->approve_time))}}
-                                                </em>
-                                            @else
-                                                waiting
-                                            @endif
-                                        @endif
-                                    </td>
-                                    <td class="text-center">
-                                        @if(\Illuminate\Support\Facades\Auth::user()->id_rms_roles_divisions == 1)
-                                            <a href="#" class="btn btn-danger btn-sm btn-icon" onclick="return confirm('Are you sure you want to delete?');"><i class="fa fa-trash"></i></a>
-                                        @else
-                                            -
-                                        @endif
-                                    </td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
+                <div class="form-group row">
+                    <label class="col-md-2 col-form-label text-right">Location</label>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" name="location" @if(isset($addmore) && $addmore == 1) value="{{$location}}" @else @if($type=='edit') value="{{$report->rpt_text}}" @endif @endif required>
                     </div>
                 </div>
-                <div class="tab-pane fade" id="hse" role="tabpanel" aria-labelledby="profile-tab">
-                    <div id="kt_datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
-                        <table class="table table-bordered table-hover display font-size-sm " style="margin-top: 13px !important; width: 100%;">
-                            <thead>
-                            <tr>
-                                <th class="text-center">#</th>
-                                <th nowrap="nowrap" class="text-center">Report By</th>
-                                <th nowrap="nowrap" class="text-center">Report Date</th>
-                                <th nowrap="nowrap" class="text-center">Division</th>
-                                <th nowrap="nowrap" class="text-center" style="width: 25%">Subject</th>
-                                <th nowrap="nowrap" class="text-center">Approval</th>
-                                <th nowrap="nowrap" class="text-center">#</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($hse as $key => $value)
-                                <tr>
-                                    <td class="text-center">{{($key+1)}}</td>
-                                    <td class="text-center">{{$value->create_by}}</td>
-                                    <td class="text-center">{{date('d M Y', strtotime($value->rpt_time))}}</td>
-                                    <td class="text-center">{{strtoupper($value->rpt_wh)}}</td>
-                                    <td class="text-center"><a href="{{route('general.dr.view',['id' => $value->id])}}" class="btn btn-link">{{strtoupper($value->rpt_subject)}}</a></td>
-                                    <td class="text-center">
-                                        @if($value->approve_time == null)
-                                            <a href="#" class="btn btn-link"><i class="fa fa-clock"></i>&nbsp;waiting</a>
-                                        @else
-                                            @if($value->approve_time)
-                                                {{$value->approve_by}}
-                                                <br />
-                                                <em style='font-size:10px'>
-                                                    {{date('d M Y',strtotime($value->approve_time))}}
-                                                </em>
-                                            @else
-                                                waiting
-                                            @endif
-                                        @endif
-                                    </td>
-                                    <td class="text-center">
-                                        @if(\Illuminate\Support\Facades\Auth::user()->id_rms_roles_divisions == 1)
-                                            <a href="#" class="btn btn-danger btn-sm btn-icon" onclick="return confirm('Are you sure you want to delete?');"><i class="fa fa-trash"></i></a>
-                                        @else
-                                            -
-                                        @endif
-                                    </td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div class="tab-pane fade" id="it" role="tabpanel" aria-labelledby="profile-tab">
-                    <div id="kt_datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
-                        <table class="table table-bordered table-hover display font-size-sm " style="margin-top: 13px !important; width: 100%;">
-                            <thead>
-                            <tr>
-                                <th class="text-center">#</th>
-                                <th nowrap="nowrap" class="text-center">Report By</th>
-                                <th nowrap="nowrap" class="text-center">Report Date</th>
-                                <th nowrap="nowrap" class="text-center">Division</th>
-                                <th nowrap="nowrap" class="text-center" style="width: 25%">Subject</th>
-                                <th nowrap="nowrap" class="text-center">Approval</th>
-                                <th nowrap="nowrap" class="text-center">#</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($it as $key => $value)
-                                <tr>
-                                    <td class="text-center">{{($key+1)}}</td>
-                                    <td class="text-center">{{$value->create_by}}</td>
-                                    <td class="text-center">{{date('d M Y', strtotime($value->rpt_time))}}</td>
-                                    <td class="text-center">{{strtoupper($value->rpt_wh)}}</td>
-                                    <td class="text-center"><a href="{{route('general.dr.view',['id' => $value->id])}}" class="btn btn-link">{{strtoupper($value->rpt_subject)}}</a></td>
-                                    <td class="text-center">
-                                        @if($value->approve_time == null)
-                                            <a href="#" class="btn btn-link"><i class="fa fa-clock"></i>&nbsp;waiting</a>
-                                        @else
-                                            @if($value->approve_time)
-                                                {{$value->approve_by}}
-                                                <br />
-                                                <em style='font-size:10px'>
-                                                    {{date('d M Y',strtotime($value->approve_time))}}
-                                                </em>
-                                            @else
-                                                waiting
-                                            @endif
-                                        @endif
-                                    </td>
-                                    <td class="text-center">
-                                        @if(\Illuminate\Support\Facades\Auth::user()->id_rms_roles_divisions == 1)
-                                            <a href="#" class="btn btn-danger btn-sm btn-icon" onclick="return confirm('Are you sure you want to delete?');"><i class="fa fa-trash"></i></a>
-                                        @else
-                                            -
-                                        @endif
-                                    </td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div class="tab-pane fade" id="laboratory" role="tabpanel" aria-labelledby="profile-tab">
-                    <div id="kt_datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
-                        <table class="table table-bordered table-hover display font-size-sm " style="margin-top: 13px !important; width: 100%;">
-                            <thead>
-                            <tr>
-                                <th class="text-center">#</th>
-                                <th nowrap="nowrap" class="text-center">Report By</th>
-                                <th nowrap="nowrap" class="text-center">Report Date</th>
-                                <th nowrap="nowrap" class="text-center">Division</th>
-                                <th nowrap="nowrap" class="text-center" style="width: 25%">Subject</th>
-                                <th nowrap="nowrap" class="text-center">Approval</th>
-                                <th nowrap="nowrap" class="text-center">#</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($laboratory as $key => $value)
-                                <tr>
-                                    <td class="text-center">{{($key+1)}}</td>
-                                    <td class="text-center">{{$value->create_by}}</td>
-                                    <td class="text-center">{{date('d M Y', strtotime($value->rpt_time))}}</td>
-                                    <td class="text-center">{{strtoupper($value->rpt_wh)}}</td>
-                                    <td class="text-center"><a href="{{route('general.dr.view',['id' => $value->id])}}" class="btn btn-link">{{strtoupper($value->rpt_subject)}}</a></td>
-                                    <td class="text-center">
-                                        @if($value->approve_time == null)
-                                            <a href="#" class="btn btn-link"><i class="fa fa-clock"></i>&nbsp;waiting</a>
-                                        @else
-                                            @if($value->approve_time)
-                                                {{$value->approve_by}}
-                                                <br />
-                                                <em style='font-size:10px'>
-                                                    {{date('d M Y',strtotime($value->approve_time))}}
-                                                </em>
-                                            @else
-                                                waiting
-                                            @endif
-                                        @endif
-                                    </td>
-                                    <td class="text-center">
-                                        @if(\Illuminate\Support\Facades\Auth::user()->id_rms_roles_divisions == 1)
-                                            <a href="#" class="btn btn-danger btn-sm btn-icon" onclick="return confirm('Are you sure you want to delete?');"><i class="fa fa-trash"></i></a>
-                                        @else
-                                            -
-                                        @endif
-                                    </td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div class="tab-pane fade" id="marketing" role="tabpanel" aria-labelledby="profile-tab">
-                    <div id="kt_datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
-                        <table class="table table-bordered table-hover display font-size-sm " style="margin-top: 13px !important; width: 100%;">
-                            <thead>
-                            <tr>
-                                <th class="text-center">#</th>
-                                <th nowrap="nowrap" class="text-center">Report By</th>
-                                <th nowrap="nowrap" class="text-center">Report Date</th>
-                                <th nowrap="nowrap" class="text-center">Division</th>
-                                <th nowrap="nowrap" class="text-center" style="width: 25%">Subject</th>
-                                <th nowrap="nowrap" class="text-center">Approval</th>
-                                <th nowrap="nowrap" class="text-center">#</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($marketing as $key => $value)
-                                <tr>
-                                    <td class="text-center">{{($key+1)}}</td>
-                                    <td class="text-center">{{$value->create_by}}</td>
-                                    <td class="text-center">{{date('d M Y', strtotime($value->rpt_time))}}</td>
-                                    <td class="text-center">{{strtoupper($value->rpt_wh)}}</td>
-                                    <td class="text-center"><a href="{{route('general.dr.view',['id' => $value->id])}}" class="btn btn-link">{{strtoupper($value->rpt_subject)}}</a></td>
-                                    <td class="text-center">
-                                        @if($value->approve_time == null)
-                                            <a href="#" class="btn btn-link"><i class="fa fa-clock"></i>&nbsp;waiting</a>
-                                        @else
-                                            @if($value->approve_time)
-                                                {{$value->approve_by}}
-                                                <br />
-                                                <em style='font-size:10px'>
-                                                    {{date('d M Y',strtotime($value->approve_time))}}
-                                                </em>
-                                            @else
-                                                waiting
-                                            @endif
-                                        @endif
-                                    </td>
-                                    <td class="text-center">
-                                        @if(\Illuminate\Support\Facades\Auth::user()->id_rms_roles_divisions == 1)
-                                            <a href="#" class="btn btn-danger btn-sm btn-icon" onclick="return confirm('Are you sure you want to delete?');"><i class="fa fa-trash"></i></a>
-                                        @else
-                                            -
-                                        @endif
-                                    </td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div class="tab-pane fade" id="operation" role="tabpanel" aria-labelledby="profile-tab">
-                    <div id="kt_datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
-                        <table class="table table-bordered table-hover display font-size-sm " style="margin-top: 13px !important; width: 100%;">
-                            <thead>
-                            <tr>
-                                <th class="text-center">#</th>
-                                <th nowrap="nowrap" class="text-center">Report By</th>
-                                <th nowrap="nowrap" class="text-center">Report Date</th>
-                                <th nowrap="nowrap" class="text-center">Division</th>
-                                <th nowrap="nowrap" class="text-center" style="width: 25%">Subject</th>
-                                <th nowrap="nowrap" class="text-center">Approval</th>
-                                <th nowrap="nowrap" class="text-center">#</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($operation as $key => $value)
-                                <tr>
-                                    <td class="text-center">{{($key+1)}}</td>
-                                    <td class="text-center">{{$value->create_by}}</td>
-                                    <td class="text-center">{{date('d M Y', strtotime($value->rpt_time))}}</td>
-                                    <td class="text-center">{{strtoupper($value->rpt_wh)}}</td>
-                                    <td class="text-center"><a href="{{route('general.dr.view',['id' => $value->id])}}" class="btn btn-link">{{strtoupper($value->rpt_subject)}}</a></td>
-                                    <td class="text-center">
-                                        @if($value->approve_time == null)
-                                            <a href="#" class="btn btn-link"><i class="fa fa-clock"></i>&nbsp;waiting</a>
-                                        @else
-                                            @if($value->approve_time)
-                                                {{$value->approve_by}}
-                                                <br />
-                                                <em style='font-size:10px'>
-                                                    {{date('d M Y',strtotime($value->approve_time))}}
-                                                </em>
-                                            @else
-                                                waiting
-                                            @endif
-                                        @endif
-                                    </td>
-                                    <td class="text-center">
-                                        @if(\Illuminate\Support\Facades\Auth::user()->id_rms_roles_divisions == 1)
-                                            <a href="#" class="btn btn-danger btn-sm btn-icon" onclick="return confirm('Are you sure you want to delete?');"><i class="fa fa-trash"></i></a>
-                                        @else
-                                            -
-                                        @endif
-                                    </td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div class="tab-pane fade" id="procurement" role="tabpanel" aria-labelledby="profile-tab">
-                    <div id="kt_datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
-                        <table class="table table-bordered table-hover display font-size-sm " style="margin-top: 13px !important; width: 100%;">
-                            <thead>
-                            <tr>
-                                <th class="text-center">#</th>
-                                <th nowrap="nowrap" class="text-center">Report By</th>
-                                <th nowrap="nowrap" class="text-center">Report Date</th>
-                                <th nowrap="nowrap" class="text-center">Division</th>
-                                <th nowrap="nowrap" class="text-center" style="width: 25%">Subject</th>
-                                <th nowrap="nowrap" class="text-center">Approval</th>
-                                <th nowrap="nowrap" class="text-center">#</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($procurement as $key => $value)
-                                <tr>
-                                    <td class="text-center">{{($key+1)}}</td>
-                                    <td class="text-center">{{$value->create_by}}</td>
-                                    <td class="text-center">{{date('d M Y', strtotime($value->rpt_time))}}</td>
-                                    <td class="text-center">{{strtoupper($value->rpt_wh)}}</td>
-                                    <td class="text-center"><a href="{{route('general.dr.view',['id' => $value->id])}}" class="btn btn-link">{{strtoupper($value->rpt_subject)}}</a></td>
-                                    <td class="text-center">
-                                        @if($value->approve_time == null)
-                                            <a href="#" class="btn btn-link"><i class="fa fa-clock"></i>&nbsp;waiting</a>
-                                        @else
-                                            @if($value->approve_time)
-                                                {{$value->approve_by}}
-                                                <br />
-                                                <em style='font-size:10px'>
-                                                    {{date('d M Y',strtotime($value->approve_time))}}
-                                                </em>
-                                            @else
-                                                waiting
-                                            @endif
-                                        @endif
-                                    </td>
-                                    <td class="text-center">
-                                        @if(\Illuminate\Support\Facades\Auth::user()->id_rms_roles_divisions == 1)
-                                            <a href="#" class="btn btn-danger btn-sm btn-icon" onclick="return confirm('Are you sure you want to delete?');"><i class="fa fa-trash"></i></a>
-                                        @else
-                                            -
-                                        @endif
-                                    </td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div class="tab-pane fade" id="te" role="tabpanel" aria-labelledby="profile-tab">
-                    <div id="kt_datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
-                        <table class="table table-bordered table-hover display font-size-sm " style="margin-top: 13px !important; width: 100%;">
-                            <thead>
-                            <tr>
-                                <th class="text-center">#</th>
-                                <th nowrap="nowrap" class="text-center">Report By</th>
-                                <th nowrap="nowrap" class="text-center">Report Date</th>
-                                <th nowrap="nowrap" class="text-center">Division</th>
-                                <th nowrap="nowrap" class="text-center" style="width: 25%">Subject</th>
-                                <th nowrap="nowrap" class="text-center">Approval</th>
-                                <th nowrap="nowrap" class="text-center">#</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($te as $key => $value)
-                                <tr>
-                                    <td class="text-center">{{($key+1)}}</td>
-                                    <td class="text-center">{{$value->create_by}}</td>
-                                    <td class="text-center">{{date('d M Y', strtotime($value->rpt_time))}}</td>
-                                    <td class="text-center">{{strtoupper($value->rpt_wh)}}</td>
-                                    <td class="text-center"><a href="{{route('general.dr.view',['id' => $value->id])}}" class="btn btn-link">{{strtoupper($value->rpt_subject)}}</a></td>
-                                    <td class="text-center">
-                                        @if($value->approve_time == null)
-                                            <a href="#" class="btn btn-link"><i class="fa fa-clock"></i>&nbsp;waiting</a>
-                                        @else
-                                            @if($value->approve_time)
-                                                {{$value->approve_by}}
-                                                <br />
-                                                <em style='font-size:10px'>
-                                                    {{date('d M Y',strtotime($value->approve_time))}}
-                                                </em>
-                                            @else
-                                                waiting
-                                            @endif
-                                        @endif
-                                    </td>
-                                    <td class="text-center">
-                                        @if(\Illuminate\Support\Facades\Auth::user()->id_rms_roles_divisions == 1)
-                                            <a href="#" class="btn btn-danger btn-sm btn-icon" onclick="return confirm('Are you sure you want to delete?');"><i class="fa fa-trash"></i></a>
-                                        @else
-                                            -
-                                        @endif
-                                    </td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div class="tab-pane fade" id="technology" role="tabpanel" aria-labelledby="profile-tab">
-                    <div id="kt_datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
-                        <table class="table table-bordered table-hover display font-size-sm " style="margin-top: 13px !important; width: 100%;">
-                            <thead>
-                            <tr>
-                                <th class="text-center">#</th>
-                                <th nowrap="nowrap" class="text-center">Report By</th>
-                                <th nowrap="nowrap" class="text-center">Report Date</th>
-                                <th nowrap="nowrap" class="text-center">Division</th>
-                                <th nowrap="nowrap" class="text-center" style="width: 25%">Subject</th>
-                                <th nowrap="nowrap" class="text-center">Approval</th>
-                                <th nowrap="nowrap" class="text-center">#</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($technology as $key => $value)
-                                <tr>
-                                    <td class="text-center">{{($key+1)}}</td>
-                                    <td class="text-center">{{$value->create_by}}</td>
-                                    <td class="text-center">{{date('d M Y', strtotime($value->rpt_time))}}</td>
-                                    <td class="text-center">{{strtoupper($value->rpt_wh)}}</td>
-                                    <td class="text-center"><a href="{{route('general.dr.view',['id' => $value->id])}}" class="btn btn-link">{{strtoupper($value->rpt_subject)}}</a></td>
-                                    <td class="text-center">
-                                        @if($value->approve_time == null)
-                                            <a href="#" class="btn btn-link"><i class="fa fa-clock"></i>&nbsp;waiting</a>
-                                        @else
-                                            @if($value->approve_time)
-                                                {{$value->approve_by}}
-                                                <br />
-                                                <em style='font-size:10px'>
-                                                    {{date('d M Y',strtotime($value->approve_time))}}
-                                                </em>
-                                            @else
-                                                waiting
-                                            @endif
-                                        @endif
-                                    </td>
-                                    <td class="text-center">
-                                        @if(\Illuminate\Support\Facades\Auth::user()->id_rms_roles_divisions == 1)
-                                            <a href="#" class="btn btn-danger btn-sm btn-icon" onclick="return confirm('Are you sure you want to delete?');"><i class="fa fa-trash"></i></a>
-                                        @else
-                                            -
-                                        @endif
-                                    </td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div class="tab-pane fade" id="911" role="tabpanel" aria-labelledby="profile-tab">
-                    <div id="kt_datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
-                        <table class="table table-bordered table-hover display font-size-sm " style="margin-top: 13px !important; width: 100%;">
-                            <thead>
-                            <tr>
-                                <th class="text-center">#</th>
-                                <th nowrap="nowrap" class="text-center">Report By</th>
-                                <th nowrap="nowrap" class="text-center">Report Date</th>
-                                <th nowrap="nowrap" class="text-center">Division</th>
-                                <th nowrap="nowrap" class="text-center" style="width: 25%">Subject</th>
-                                <th nowrap="nowrap" class="text-center">Approval</th>
-                                <th nowrap="nowrap" class="text-center">#</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($_911 as $key => $value)
-                                <tr>
-                                    <td class="text-center">{{($key+1)}}</td>
-                                    <td class="text-center">{{$value->create_by}}</td>
-                                    <td class="text-center">{{date('d M Y', strtotime($value->rpt_time))}}</td>
-                                    <td class="text-center">{{strtoupper($value->rpt_wh)}}</td>
-                                    <td class="text-center"><a href="{{route('general.dr.view',['id' => $value->id])}}" class="btn btn-link">{{strtoupper($value->rpt_subject)}}</a></td>
-                                    <td class="text-center">
-                                        @if($value->approve_time == null)
-                                            <a href="#" class="btn btn-link"><i class="fa fa-clock"></i>&nbsp;waiting</a>
-                                        @else
-                                            @if($value->approve_time)
-                                                {{$value->approve_by}}
-                                                <br />
-                                                <em style='font-size:10px'>
-                                                    {{date('d M Y',strtotime($value->approve_time))}}
-                                                </em>
-                                            @else
-                                                waiting
-                                            @endif
-                                        @endif
-                                    </td>
-                                    <td class="text-center">
-                                        @if(\Illuminate\Support\Facades\Auth::user()->id_rms_roles_divisions == 1)
-                                            <a href="#" class="btn btn-danger btn-sm btn-icon" onclick="return confirm('Are you sure you want to delete?');"><i class="fa fa-trash"></i></a>
-                                        @else
-                                            -
-                                        @endif
-                                    </td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div class="tab-pane fade" id="mb" role="tabpanel" aria-labelledby="profile-tab">
-                    <div id="kt_datatable_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
-                        <table class="table table-bordered table-hover display font-size-sm " style="margin-top: 13px !important; width: 100%;">
-                            <thead>
-                            <tr>
-                                <th class="text-center">#</th>
-                                <th nowrap="nowrap" class="text-center">Report By</th>
-                                <th nowrap="nowrap" class="text-center">Report Date</th>
-                                <th nowrap="nowrap" class="text-center">Division</th>
-                                <th nowrap="nowrap" class="text-center" style="width: 25%">Subject</th>
-                                <th nowrap="nowrap" class="text-center">Approval</th>
-                                <th nowrap="nowrap" class="text-center">#</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($mb as $key => $value)
-                                <tr>
-                                    <td class="text-center">{{($key+1)}}</td>
-                                    <td class="text-center">{{$value->create_by}}</td>
-                                    <td class="text-center">{{date('d M Y', strtotime($value->rpt_time))}}</td>
-                                    <td class="text-center">{{strtoupper($value->rpt_wh)}}</td>
-                                    <td class="text-center"><a href="{{route('general.dr.view',['id' => $value->id])}}" class="btn btn-link">{{strtoupper($value->rpt_subject)}}</a></td>
-                                    <td class="text-center">
-                                        @if($value->approve_time == null)
-                                            <a href="#" class="btn btn-link"><i class="fa fa-clock"></i>&nbsp;waiting</a>
-                                        @else
-                                            @if($value->approve_time)
-                                                {{$value->approve_by}}
-                                                <br />
-                                                <em style='font-size:10px'>
-                                                    {{date('d M Y',strtotime($value->approve_time))}}
-                                                </em>
-                                            @else
-                                                waiting
-                                            @endif
-                                        @endif
-                                    </td>
-                                    <td class="text-center">
-                                        @if(\Illuminate\Support\Facades\Auth::user()->id_rms_roles_divisions == 1)
-                                            <a href="#" class="btn btn-danger btn-sm btn-icon" onclick="return confirm('Are you sure you want to delete?');"><i class="fa fa-trash"></i></a>
-                                        @else
-                                            -
-                                        @endif
-                                    </td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
+                <br><br>
+                <h4>Report Content</h4>
+                <hr>
 
+
+                @for($i = 0; $i<$count_activity; $i++)
+                    @if(isset($addmore) && $addmore == 1)
+                        @if(!($rpt_to[$i] == "" && $i != (count($rpt_to)-1)))
+
+                            <div class="form-group row">
+                                <div class="col-md-2">
+                                    <input type="time" class="form-control" id="rep_from[{{$i}}]" name="rep_from[]" value="{{$rpt_from[$i]}}" required>
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="time" class="form-control" id="rep_to[{{$i}}]" name="rep_to[]" value="{{$rpt_to[$i]}}" placeholder="hh:mm" required>
+                                </div>
+                                <div class="col-md-8">
+                                    <textarea class="form-control" id="rep_desc[{{$i}}]" name="rep_desc[]">{{$rpt_desc[$i]}}</textarea>
+                                </div>
+                            </div>
+                        @endif
+                    @else
+                        @if($type != 'edit')
+                        <div class="form-group row">
+                            <div class="col-md-2">
+                                <input type="time" class="form-control" id="rep_from[{{$i}}]" name="rep_from[]" placeholder="hh:mm" required>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="time" class="form-control" id="rep_to[{{$i}}]" name="rep_to[]" placeholder="hh:mm" required>
+                            </div>
+                            <div class="col-md-8">
+                                <textarea class="form-control" id="rep_desc[{{$i}}]" name="rep_desc[]"></textarea>
+                            </div>
+                        </div>
+                        @endif
+                    @endif
+                @endfor
+                @if($type == 'edit')
+                    @if(!(isset($addmore) && $addmore == 1))
+                    @foreach($activity as $key => $value)
+                        <div class="form-group row">
+                            <div class="col-md-2">
+                                <input type="time" class="form-control" id="rep_from[{{$i}}]" name="rep_from[]" value="{{$value->rep_from}}" placeholder="hh:mm" required>
+                            </div>
+                            <div class="col-md-2">
+                                <input type="time" class="form-control" id="rep_to[{{$i}}]" name="rep_to[]" value="{{$value->rep_to}}" placeholder="hh:mm" required>
+                            </div>
+                            <div class="col-md-8">
+                                <textarea class="form-control" id="rep_desc[{{$i}}]" name="rep_desc[]">{{$value->rep_desc}}</textarea>
+                            </div>
+                        </div>
+                    @endforeach
+                    @endif
+                @endif
+
+                <div class="form-group row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8 text-right">
+                        <button type="submit" name="add_activity" value="add_activity" class="btn btn-primary font-weight-bold pull-right">
+                            Add More
+                        </button>
+
+                    </div>
+                </div>
+
+                <br><br>
+                <hr>
+                <h4>Attach File</h4>
+
+                <div class="form-group">
+                    <label class="col-md-6 col-form-label text-right"><em>Max image size is 2mb Only JPG, JPEG, PNG & GIF</em></label>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4">
+                        <input type="file" name="attachment[]" class="form-control" accept="image/*"/> <br>
+                        <button id="add_more" class="btn btn-primary btn-sm text-right">Add More Files</button>
+                        <br><br><br>
+                        <table>
+                            <tr>
+                                @if($type == 'edit')
+                                @foreach($attach as $key => $val)
+                                    <td><a href="{{route('download',$val->filename)}}" class="btn btn-info"><i class="fa fa-download"></i>&nbsp; Download File</a>
+                                        <br></td>
+                                @endforeach
+                                @endif
+                            </tr>
+                        </table>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6 text-right">
+
+                        <button type="submit" name="submitAll" class="btn btn-success font-weight-bold pull-right">
+                            <i class="fa fa-check"></i>
+                            {{($type=='input')?'Save':'Update'}}
+                        </button>
+
+                    </div>
+                </div>
+
+            </form>
         </div>
     </div>
 @endsection
 @section('custom_script')
+    <script src="{{asset('theme/tinymce/tinymce.min.js')}}"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            tinymce.init({
+                editor_selector : ".form-control",
+                selector:'textarea',
+                mode : "textareas",
+            })
+            $('#add_more').click(function(e){
+                e.preventDefault();
+                $(this).before("<div class='col-md-12'><input name='attachment[]' type='file' class='form-control' accept='image/*'/></div><br>");
+            });
+        });
+
+
+    </script>
 @endsection
